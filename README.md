@@ -20,7 +20,7 @@ The following commands were utilized in deriving the required data selections:
 - `import pandas as pd` ---> Imports the Pandas library that contains indexing, subsetting, and slicing tools for data frame manipulation. The code converts the library name to the convention "pd".
 - `board = pd.read_excel('board2.xlsx')` ---> Reads the excel file "board2.xslx" and converts it to a structured Pandas data frame assigned to the convention "board."
 - `display(board)` ---> Displays the board data frame derived from the excel file board2.xslx.
-- `VisComm = board.loc[(board['Hometown']=='Visayas')&(board['Track']=='Communication')]` ---> Filters the board data frame using Boolean conditions that extracts  the rows containing the following data: "Visayas" in their Hometown feature and "Communication" in their Track feature. The derived data frame is stored in "VisComm".
+- `VisComm = board.loc[(board['Hometown']=='Visayas')&(board['Track']=='Communication')].copy()` ---> Filters the board data frame using Boolean conditions that extracts  the rows containing the following data: "Visayas" in their Hometown feature and "Communication" in their Track feature. The derived data frame is stored in "VisComm".
 - `VisComm['Average']=VisComm[['Math', 'Electronics', 'GEAS', 'Communication']].mean(axis=1)` ---> Calculates the row-wise average of the data contained in the following features: Math, Electronics, GEAS, Communication. The code creates a new column called "Average" attached to the VisComm data frame where the calculated data averages are stored.
 - `VisComm=VisComm[['Name', 'Gender', 'Math', 'Electronics', 'Average']]` ---> Filters the VisComm data frame by only retaining the following selected features: Name, Gender, Math, Electronics, Average.
 - `display(VisComm)` ---> Displays the VisComm data frame.
@@ -45,7 +45,7 @@ print ('Number of Rows:', len(VisComm))
 > - Do not overwrite VisFemale when performing this second filter.
 
 The following commands were utilized in deriving the required data selections:
-- `VisFemale = board.loc[(board['Hometown']=='Visayas')&(board['Gender']=='Female')]` --->  Filters the board data frame using Boolean conditions that extracts  the rows containing the following data: "Visayas" in their Hometown feature and "Female" in their Gender feature. The derived data frame is stored in "VisFemale".
+- `VisFemale = board.loc[(board['Hometown']=='Visayas')&(board['Gender']=='Female')].copy()` --->  Filters the board data frame using Boolean conditions that extracts  the rows containing the following data: "Visayas" in their Hometown feature and "Female" in their Gender feature. The derived data frame is stored in "VisFemale".
 - `VisFemale['Average']=VisFemale[['Math', 'Electronics', 'GEAS', 'Communication']].mean(axis=1)` ---> Calculates the row-wise average of the data contained in the following features: Math, Electronics, GEAS, Communication. The code creates a new column called "Average" attached to the VisFemale data frame where the calculated data averages are stored.
 - `VisFemale=VisFemale[['Name', 'Track', 'GEAS', 'Electronics', 'Average']]` ---> Filters the VisFemale data frame by only retaining the following selected features: Name, Track, GEAS, Electronics, Average.
 - `display(VisFemale)` ---> Displays the VisFemale data frame.
