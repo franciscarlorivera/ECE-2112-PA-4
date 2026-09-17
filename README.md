@@ -72,9 +72,9 @@ display(VisFemale.loc[VisFemale['Average']>=60])
 The following commands were utilized in deriving required data selections and creating data figures:
 - `Mean = board.copy()` ---> Creates a copy of the original data frame board and stores the copy in "Mean".
 - `Mean['Average']=Mean[['Math', 'Electronics', 'GEAS', 'Communication']].mean(axis=1)`---> Calculates the row-wise average of the data contained in the following features: Math, Electronics, GEAS, Communication. The code creates a new column called "Average" attached to the Mean data frame where the calculated data averages are stored.
-- `Track_Average = Mean.pivot_table(index = 'Track', values = 'Average').reset_index()` ---> Manipulates the Mean data frame by grouping the values stored in the "Track" feature, creating three distinct rows. The operation then obtains the mean of the values stored in the "Average" feature corresponding to each value in Track. The manipulated data frame is stored in "Track_Average"
-- `Gender_Average = Mean.pivot_table(index = 'Gender', values = 'Average').reset_index()` ---> Manipulates the Mean data frame by grouping the values stored in the "Gender" feature, creating two distinct rows. The operation then obtains the mean of the values stored in the "Average" feature corresponding to each value in Gender. The manipulated data frame is stored in "Gender_Average"
-- `Hometown_Average = Mean.pivot_table(index = 'Hometown', values = 'Average').reset_index()` ---> Manipulates the Mean data frame by grouping the values stored in the "Hometown" feature, creating three distinct rows. The operation then obtains the mean of the values stored in the "Average" feature corresponding to each value in Hometown. The manipulated data frame is stored in "Hometown_Average"
+- `Track_Average = Mean.pivot_table(index = 'Track', values = 'Average').reset_index()` ---> Manipulates the Mean data frame by grouping the values stored in the "Track" feature, creating three distinct rows. The operation then obtains the mean of the values stored in the "Average" feature corresponding to each value in Track. The manipulated data frame is stored in "Track_Average".
+- `Gender_Average = Mean.pivot_table(index = 'Gender', values = 'Average').reset_index()` ---> Manipulates the Mean data frame by grouping the values stored in the "Gender" feature, creating two distinct rows. The operation then obtains the mean of the values stored in the "Average" feature corresponding to each value in Gender. The manipulated data frame is stored in "Gender_Average".
+- `Hometown_Average = Mean.pivot_table(index = 'Hometown', values = 'Average').reset_index()` ---> Manipulates the Mean data frame by grouping the values stored in the "Hometown" feature, creating three distinct rows. The operation then obtains the mean of the values stored in the "Average" feature corresponding to each value in Hometown. The manipulated data frame is stored in "Hometown_Average".
 - `display(Track_Average)` ---> Displays the Track_Average data frame.
 - `display(Gender_Average)` ---> Displays the Gender_Average data frame.
 - `display(Hometown_Average)` ---> Displays the Hometown_Average data frame.
@@ -148,3 +148,4 @@ The created subplots visualize the category with the highest mean for each featu
 - September 17, 2026: Added content for Part A and Part B.
 - September 17, 2026: Completed content for Parts A, B, and C.
 - September 17, 2026: Uploaded Jupyter Notebook File.
+- September 17, 2026: Uploaded Excel File.
