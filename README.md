@@ -1,7 +1,7 @@
 # ECE-2112-PA-4
 Rivera, Francis Carlo E. | 2ECE-D
 
-The repository covers Programming Assignment 4 for our ECE2112: Advanced Computer Programming and Algorithms course. The PA is divided into three programming problems that focuses on filtering tabular data through the selection of desired features that meet established Boolean criteria. Additionally, data comparison is conducted by creating labeled plots or figures for visualization.
+The repository covers Programming Assignment 4 for our ECE2112: Advanced Computer Programming and Algorithms course. The PA is divided into three programming problems that focuses on filtering tabular data through the selection of desired features that meet established Boolean criteria. Additionally, data analysis is conducted by creating labeled plots or figures for visualization.
 
 ## INTENDED LEARNING OUTCOMES
 1. Filter tabular data using several categorical and numerical conditions
@@ -15,6 +15,14 @@ The repository covers Programming Assignment 4 for our ECE2112: Advanced Compute
 > - Retain only these columns, in the stated order: **"Name, Gender, Math, Electronics, Average"**.
 > - Display the resulting DataFrame and its number of rows.
 > - Both filtering conditions must be applied to the source dataset before the columns are selected.
+
+The following commands were utilized in deriving the required data selections:
+- `import pandas as pd` ---> Imports the Pandas library that contains indexing, subsetting, and slicing tools for data frame manipulation. The code converts the library name to the convention "pd".
+- `board = pd.read_excel('board2.xlsx')` ---> Reads the excel file "board2.xslx" and converts it to a structured Pandas data frame assigned to the convention "board."
+- `display(board)` ---> Displays the board data frame derived from the excel file board2.xslx.
+- `VisComm = board.loc[(board['Hometown']=='Visayas')&(board['Track']=='Communication')]`
+
+
 
 
 # B. VISAYAS FEMALE DATAFRAME
