@@ -72,9 +72,9 @@ display(VisFemale.loc[VisFemale['Average']>=60])
 The following commands were utilized in deriving required data selections and creating data figures:
 - `Mean = board.copy()` ---> Creates a copy of the original data frame board and stores the copy in "Mean".
 - `Mean['Average']=Mean[['Math', 'Electronics', 'GEAS', 'Communication']].mean(axis=1)`---> Calculates the row-wise average of the data contained in the following features: Math, Electronics, GEAS, Communication. The code creates a new column called "Average" attached to the Mean data frame where the calculated data averages are stored.
-- `Track_Average = Mean.pivot_table(index = 'Track', values = 'Average').reset_index()` ---> Manipulates the Mean data frame by grouping the values stored in the "Track" feature, creating three distinct rows. The operation then obtains the mean of the values stored in the "Average" feature corresponding to each value in Track. The value
-- `Gender_Average = Mean.pivot_table(index = 'Gender', values = 'Average').reset_index()` ---> Manipulates the 
-- `Hometown_Average = Mean.pivot_table(index = 'Hometown', values = 'Average').reset_index()` --->
+- `Track_Average = Mean.pivot_table(index = 'Track', values = 'Average').reset_index()` ---> Manipulates the Mean data frame by grouping the values stored in the "Track" feature, creating three distinct rows. The operation then obtains the mean of the values stored in the "Average" feature corresponding to each value in Track. The manipulated data frame is stored in "Track_Average"
+- `Gender_Average = Mean.pivot_table(index = 'Gender', values = 'Average').reset_index()` ---> Manipulates the Mean data frame by grouping the values stored in the "Gender" feature, creating two distinct rows. The operation then obtains the mean of the values stored in the "Average" feature corresponding to each value in Gender. The manipulated data frame is stored in "Gender_Average"
+- `Hometown_Average = Mean.pivot_table(index = 'Hometown', values = 'Average').reset_index()` ---> Manipulates the Mean data frame by grouping the values stored in the "Hometown" feature, creating three distinct rows. The operation then obtains the mean of the values stored in the "Average" feature corresponding to each value in Hometown. The manipulated data frame is stored in "Hometown_Average"
 - `display(Track_Average)` ---> Displays the Track_Average data frame.
 - `display(Gender_Average)` ---> Displays the Gender_Average data frame.
 - `display(Hometown_Average)` ---> Displays the Hometown_Average data frame.
@@ -86,14 +86,15 @@ The following commands were utilized in deriving required data selections and cr
 - `plt.bar(Track_Average['Track'], Track_Average['Average'])` ---> Creates a bar chart using the Track_Average data frame. The code assigns the values stored in the "Track" feature to the x-axis, while assigning the values stored in the "Average" feature for the y-axis.
 - `plt.bar(Gender_Average['Gender'], Gender_Average['Average'])` ---> Creates a bar chart using the Gender_Average data frame. The code assigns the values stored in the "Gender" feature to the x-axis, while assigning the values stored in the "Average" feature for the y-axis.
 - `plt.bar(Hometown_Average['Hometown'], Hometown_Average['Average'])` ---> Creates a bar chart using the Hometown_Average data frame. The code assigns the values stored in the "Hometown" feature to the x-axis, while assigning the values stored in the "Average" feature for the y-axis.
-- `plt.title('Mean Average by Track')` ---> Creates a title for the current subplot being manipulated, titled as "Mean Average by Track".
-- `plt.title('Mean Average by Gender')` ---> Creates a title for the current subplot being manipulated, titled as "Mean Average by Gender".
-- `plt.title('Mean Average by Hometown')` ---> Creates a title for the current subplot being manipulated, titled as "Mean Average by Hometown".
+- `plt.title('Sample Mean by Track')` ---> Creates a title for the current subplot being manipulated, titled as "Mean Average by Track".
+- `plt.title('Sample Mean by Gender')` ---> Creates a title for the current subplot being manipulated, titled as "Mean Average by Gender".
+- `plt.title('Sample Mean by Hometown')` ---> Creates a title for the current subplot being manipulated, titled as "Mean Average by Hometown".
 - `plt.xlabel('Track')` ---> Labels the x-axis of the current subplot being manipulated as "Track".
 - `plt.xlabel('Gender')` ---> Labels the x-axis of the current subplot being manipulated as "Gender".
 - `plt.xlabel('Hometown')` ---> Labels the x-axis of the current subplot being manipulated as "Hometown".
-- `plt.ylabel('Mean Average')` ---> Labels the y-axis of the current subplot being manipulated as "Mean Average". The y-axis label for all subplots are identical.
+- `plt.ylabel('Mean')` ---> Labels the y-axis of the current subplot being manipulated as "Mean Average". The y-axis label for all subplots are identical.
 - `plt.ylim(0, 80)` ---> Sets a numerical scale for the y-axis of the current subplot being manipulated, setting the scale from 0 units to 80 units. The scale is kept uniform for all created subplots.
+- `plt.figtext(0.5, -0.3, "The highest sample mean obtained in the Track Feature belongs to the category Communication.\n\nThe highest sample mean obtained in the Gender Feature belongs to the category Male.\n\nThe highest sample mean obtained in the Hometown Feature belongs to the category Luzon.", ha="center", fontsize=15, style="italic")` ---> Places text within the figure located 0.5 units in the x-axis and -0.3 units down the y-axis. The text is aligned at the center, with a font size of 15 units written in italic.
 - `plt.show()` ---> Displays all created subplots within the figure, while suppressing any output text label that precedes the given figure.
 
 ```
@@ -113,31 +114,37 @@ import matplotlib.pyplot as plt
 plt.figure(figsize=(20, 5))
 plt.subplot(1, 3, 1)
 plt.bar(Track_Average['Track'], Track_Average['Average'])
-plt.title('Mean Average by Track')
+plt.title('Sample Mean by Track')
 plt.xlabel('Track')
-plt.ylabel('Mean Average')
+plt.ylabel('Mean')
 plt.ylim(0, 80)
 
 plt.subplot(1,3,2)
 plt.bar(Gender_Average['Gender'], Gender_Average['Average'])
-plt.title('Mean Average by Gender')
+plt.title('Sample Mean by Gender')
 plt.xlabel('Gender')
-plt.ylabel('Mean Average')
+plt.ylabel('Mean')
 plt.ylim(0, 80)
-
 
 plt.subplot(1,3,3)
 plt.bar(Hometown_Average['Hometown'], Hometown_Average['Average'])
-plt.title('Mean Average by Hometown')
+plt.title('Sample Mean by Hometown')
 plt.xlabel('Hometown')
-plt.ylabel('Mean Average')
+plt.ylabel('Mean')
 plt.ylim(0, 80)
+
+plt.figtext(0.5, -0.3, "The highest sample mean obtained in the Track Feature belongs to the category Communication.\n\nThe highest sample mean obtained in the Gender Feature belongs to the category Male.\n\nThe highest sample mean obtained in the Hometown Feature belongs to the category Luzon.", ha="center", fontsize=15, style="italic")
+
 
 plt.show()
 ```
+The created subplots visualize the category with the highest mean for each feature. The highest sample mean for each feature are as follows: "**Communication**" category for the "**Track**" feature, "**Male**" category for the "**Gender**" feature, and "**Luzon**" category for the "**Hometown**" feature.
+
 
 ### VERSION HISTORY
 - September 14, 2026: README File created.
 - September 14, 2026: Added content for introductory section.
 - September 14, 2026: Added objectives for Part A, Part B, and Part C.
 - September 17, 2026: Added content for Part A and Part B.
+- September 17, 2026: Completed content for Parts A, B, and C.
+- September 17, 2026: Uploaded Jupyter Notebook File.
